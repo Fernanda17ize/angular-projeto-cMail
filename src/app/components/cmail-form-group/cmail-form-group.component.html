@@ -1,0 +1,28 @@
+<div class="cmailInputForm">
+  <div
+    [ngClass]="{ 'is-invalid': campo.invalid && campo.touched }"
+    class="mdl-textfield mdl-textfield--floating-label">
+
+    <!-- O input entra na tag e sai aqui -->
+    <ng-content></ng-content>
+    <!-- O input entra na tag e sai aqui -->
+
+
+    <span *ngIf="campo.errors?.required" class="mdl-textfield__error">
+      Informar um "{{ valorDaLabel }}" é obrigatório!
+    </span>
+
+    <span *ngIf="campo.errors?.minlength" class="mdl-textfield__error">
+      Você precisa informar ao menos {{ campo.errors.minlength.requiredLength }} caracteres
+      faltam {{ campo.errors.minlength.requiredLength - campo.errors.minlength.actualLength }}
+    </span>
+
+
+
+    <label class="mdl-textfield__label" for="{{ idDoInput }}">{{ valorDaLabel }}: </label>
+
+    <span class="mdl-textfield__formline"></span>
+  </div>
+</div>
+
+
